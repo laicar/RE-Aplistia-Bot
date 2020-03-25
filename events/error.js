@@ -1,4 +1,4 @@
-const {admins} = require("./config.json");
+const {admins} = require("../config.json");
 
 module.exports = async (client, e) => {
     if (client.users.get(admins[0])) {

@@ -1,14 +1,12 @@
 module.exports = async (client, message) => {
-    // Ignore everything on the testing servers... if Edward himself was there, anyway.
-    //if (message.guild && client.config.testingMode == "false" && (message.guild.id == 549453292762038282 || message.guild.id == 597606244156571660)) return;
     // Ignore all bots beyond this point
     if (message.author.bot) return;
     // Ignore messages not starting with the prefix (in config.json)
     if (message.content.indexOf(client.config.prefix) !== 0) return;
     // Also ignore innocent messages that just happen to start with several "?"
     if (message.content == "?" || message.content.match(/^??+/)) return;
-    // Enable this if you want only admins to be able to use Hubba
-    //if (!client.config.admins.includes(message.author.id)) return message.channel.send("Hubba is currently locked. Try again later.");
+    // Enable this if you want only admins to be able to use the bot
+    //if (!client.config.admins.includes(message.author.id)) return message.channel.send("I am currently locked. Try again later.");
     // Pull out the name of the command and any arguments
     var args = message.content.slice(client.config.prefix.length).trim().split(/ +/g);
     var command = args.shift().toLowerCase();

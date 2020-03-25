@@ -1,9 +1,6 @@
 exports.run = (client, message, args, userData) => {
     var text = args.join(" ");
-    // RE server
-    //client.guilds.get("153767654270697473").channels.get("459144307509690368").send(text);
-    // French Vamps' bot-chan
-    client.guilds.get("614881371609104386").channels.get("644304922631733248").send(text);
+    client.guilds.get(client.config.announcementGuild).channels.get(clien.config.announcementChannel).send(text);
 };
 
 exports.conf = {
@@ -18,7 +15,7 @@ exports.conf = {
 exports.help = {
     name: "announce",
     category: "Administration",
-    description: "Posts a message from Edward to server-announcements.",
+    description: "Posts a message from Edward to the channel designated in the config file.",
     usage: "announce <message>",
     wiki: "N/A"
 };
